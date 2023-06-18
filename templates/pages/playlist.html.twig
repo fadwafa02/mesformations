@@ -3,16 +3,24 @@
     <div class="row mt-3">
         <div class="col">
             <h4 class="text-info mt-5">{{ playlist.name }}</h4>
+<<<<<<< HEAD
             <strong>Nombre de formations : </strong>{{ 
                 playlistformations|length}}
             <strong>Catégories : </strong>
+=======
+            <strong>catégories : </strong>
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
                 <!-- boucle pour afficher les catégories -->
                 {% set anccategorie = '' %}
                 {% for playlist in playlistcategories %}
                     {{ playlist.name }}&nbsp;
                 {% endfor %}
             <br /><br />
+<<<<<<< HEAD
             <strong>Description :</strong><br />
+=======
+            <strong>description :</strong><br />
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
                 {{ playlist.description|nl2br }}
         </div>
         <div class="col">
@@ -22,7 +30,19 @@
                     <div class="col-md-auto">
                         {% if formation.miniature %}
                             <a href="{{ path('formations.showone', {id:formation.id}) }}">
+<<<<<<< HEAD
                                 <img src="{{ formation.miniature }}" alt="image réduite de formation">
+=======
+<<<<<<< HEAD
+                                <img src="{{ formation.miniature }}" alt="image réduite de formation">
+=======
+<<<<<<< HEAD
+                                <img src="{{ formation.miniature }}" alt="image réduite de formation">
+=======
+                                <img src="{{ formation.miniature }}">
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
                             </a>
                         {% endif %}  
                     </div>

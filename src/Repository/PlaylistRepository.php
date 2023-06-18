@@ -5,6 +5,10 @@ namespace App\Repository;
 use App\Entity\Playlist;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
 use const CNAME;
 use const CNCATEGORIENAME;
 use const FCATEGORIES;
@@ -12,12 +16,27 @@ use const PFORMATIONS;
 use const PIDID;
 use const PNAMENAME;
 
+<<<<<<< HEAD
+=======
+=======
+
+<<<<<<< HEAD
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
 define("PIDID", "p.id id");
 define("PNAMENAME", "p.name name");
 define("CNAME", "c.name");
 define("PFORMATIONS", "p.formations");
 define("CNCATEGORIENAME", "c.name categoriename");
 define("FCATEGORIES", "f.categories");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
 /**
  * @extends ServiceEntityRepository<Playlist>
  *
@@ -52,6 +71,7 @@ class PlaylistRepository extends ServiceEntityRepository
     }
     
     /**
+<<<<<<< HEAD
      * Retourne toutes les playlists triées sur le nom de la playlist
      * @param type $ordre
      * @return Playlist[]
@@ -66,6 +86,48 @@ class PlaylistRepository extends ServiceEntityRepository
     }
 
     /**
+=======
+     * Retourne toutes les playlists triées sur un champ
+     * @param type $champ
+     * @param type $ordre
+     * @return Playlist[]
+     */
+    public function findAllOrderBy($champ, $ordre): array{
+        return $this->createQueryBuilder('p')
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+                ->select(PIDID)
+                ->addSelect(PNAMENAME)
+                ->addSelect(CNCATEGORIENAME)
+                ->leftjoin(PFORMATIONS, 'f')
+                ->leftjoin(FCATEGORIES, 'c')
+                ->groupBy('p.id')
+                ->addGroupBy(CNAME)
+                ->orderBy('p.'.$champ, $ordre)
+                ->addOrderBy(CNAME)
+<<<<<<< HEAD
+=======
+=======
+                ->select('p.id id')
+                ->addSelect('p.name name')
+                ->addSelect('c.name categoriename')
+                ->leftjoin('p.formations', 'f')
+                ->leftjoin('f.categories', 'c')
+                ->groupBy('p.id')
+                ->addGroupBy('c.name')
+                ->orderBy('p.'.$champ, $ordre)
+                ->addOrderBy('c.name')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+                ->getQuery()
+                ->getResult();       
+    }
+
+    /**
+<<<<<<< HEAD
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
     * Enregistrements dont un champ contient une valeur
     * ou tous les enregistrements si la valeur est vide
     * @param type $champ
@@ -74,6 +136,7 @@ class PlaylistRepository extends ServiceEntityRepository
     */
     public function findByContainValue($champ, $valeur): array{
         if($valeur==""){
+<<<<<<< HEAD
             return $this->findAllOrderByName('ASC');
         }
         return $this->createQueryBuilder('p')
@@ -82,6 +145,22 @@ class PlaylistRepository extends ServiceEntityRepository
             ->setParameter('valeur', '%'.$valeur.'%')
             ->groupBy('p.id')
             ->orderBy('p.name', 'ASC')
+=======
+            return $this->findAllOrderBy('name','ASC');
+        }
+        return $this->createQueryBuilder('p')
+            ->select(PIDID)
+            ->addSelect(PNAMENAME)
+            ->addSelect(CNCATEGORIENAME)
+            ->leftjoin(PFORMATIONS, 'f')
+            ->leftjoin(FCATEGORIES, 'c')
+            ->where('p.'.$champ.' LIKE :valeur')
+            ->setParameter('valeur', '%'.$valeur.'%')
+            ->groupBy('p.id')
+            ->addGroupBy(CNAME)
+            ->orderBy('p.name', 'ASC')
+            ->addOrderBy(CNAME)
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
             ->getQuery()
             ->getResult(); 
     }
@@ -96,6 +175,7 @@ class PlaylistRepository extends ServiceEntityRepository
      */
     public function findByContainValueTable($champ, $valeur, $table): array{
         if($valeur==""){
+<<<<<<< HEAD
             return $this->findAllOrderByName('ASC');
         }
         return $this->createQueryBuilder('p')
@@ -105,10 +185,26 @@ class PlaylistRepository extends ServiceEntityRepository
             ->setParameter('valeur', '%'.$valeur.'%')
             ->groupBy('p.id')                
             ->orderBy('p.name', 'ASC')
+=======
+            return $this->findAllOrderBy('name', 'ASC');
+        }
+        return $this->createQueryBuilder('p')
+            ->select(PIDID)
+            ->addSelect(PNAMENAME)
+            ->addSelect(CNCATEGORIENAME)
+            ->leftjoin(PFORMATIONS, 'f')
+            ->leftjoin(FCATEGORIES, 'c')
+            ->setParameter('valeur', '%'.$valeur.'%')
+            ->groupBy('p.id')                
+            ->where('c.'.$champ.' LIKE :valeur')
+            ->orderBy('p.name', 'ASC')
+            ->addOrderBy(CNAME)
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
             ->getQuery()
             ->getResult();
         
     }
+<<<<<<< HEAD
     
     /**
      * Retourne toutes les playlists triées sur le nombre de formations     
@@ -124,4 +220,84 @@ class PlaylistRepository extends ServiceEntityRepository
                 ->getResult();       
     }
           
+=======
+          
+=======
+     * Enregistrements dont un champ contient une valeur
+     * ou tous les enregistrements si la valeur est vide
+     * @param type $champ
+     * @param type $valeur
+     * @param type $table si $champ dans une autre table
+     * @return Playlist[]
+     */
+    public function findByContainValue($champ, $valeur, $table=""): array{
+        if($valeur==""){
+            return $this->findAllOrderBy('name', 'ASC');
+        }    
+        if($table==""){      
+            return $this->createQueryBuilder('p')
+<<<<<<< HEAD
+                    ->select(PIDID)
+                    ->addSelect(PNAMENAME)
+                    ->addSelect(CNCATEGORIENAME)
+                    ->leftjoin(PFORMATIONS, 'f')
+                    ->leftjoin(FCATEGORIES, 'c')
+                    ->where('p.'.$champ.' LIKE :valeur')
+                    ->setParameter('valeur', '%'.$valeur.'%')
+                    ->groupBy('p.id')
+                    ->addGroupBy(CNAME)
+                    ->orderBy('p.name', 'ASC')
+                    ->addOrderBy(CNAME)
+=======
+                    ->select('p.id id')
+                    ->addSelect('p.name name')
+                    ->addSelect('c.name categoriename')
+                    ->leftjoin('p.formations', 'f')
+                    ->leftjoin('f.categories', 'c')
+                    ->where('p.'.$champ.' LIKE :valeur')
+                    ->setParameter('valeur', '%'.$valeur.'%')
+                    ->groupBy('p.id')
+                    ->addGroupBy('c.name')
+                    ->orderBy('p.name', 'ASC')
+                    ->addOrderBy('c.name')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+                    ->getQuery()
+                    ->getResult();              
+        }else{   
+            return $this->createQueryBuilder('p')
+<<<<<<< HEAD
+                    ->select(PIDID)
+                    ->addSelect(PNAMENAME)
+                    ->addSelect(CNCATEGORIENAME)
+                    ->leftjoin(PFORMATIONS, 'f')
+                    ->leftjoin(FCATEGORIES, 'c')
+                    ->where('c.'.$champ.' LIKE :valeur')
+                    ->setParameter('valeur', '%'.$valeur.'%')
+                    ->groupBy('p.id')
+                    ->addGroupBy(CNAME)
+                    ->orderBy('p.name', 'ASC')
+                    ->addOrderBy(CNAME)
+=======
+                    ->select('p.id id')
+                    ->addSelect('p.name name')
+                    ->addSelect('c.name categoriename')
+                    ->leftjoin('p.formations', 'f')
+                    ->leftjoin('f.categories', 'c')
+                    ->where('c.'.$champ.' LIKE :valeur')
+                    ->setParameter('valeur', '%'.$valeur.'%')
+                    ->groupBy('p.id')
+                    ->addGroupBy('c.name')
+                    ->orderBy('p.name', 'ASC')
+                    ->addOrderBy('c.name')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+                    ->getQuery()
+                    ->getResult();              
+            
+        }           
+    }    
+
+
+    
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
 }
