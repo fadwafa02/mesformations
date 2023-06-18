@@ -6,12 +6,15 @@ use App\Entity\Playlist;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+<<<<<<< HEAD
 define("PIDID", "p.id id");
 define("PNAMENAME", "p.name name");
 define("CNAME", "c.name");
 define("PFORMATIONS", "p.formations");
 define("CNCATEGORIENAME", "c.name categoriename");
 define("FCATEGORIES", "f.categories");
+=======
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
 /**
  * @extends ServiceEntityRepository<Playlist>
  *
@@ -53,6 +56,7 @@ class PlaylistRepository extends ServiceEntityRepository
      */
     public function findAllOrderBy($champ, $ordre): array{
         return $this->createQueryBuilder('p')
+<<<<<<< HEAD
                 ->select(PIDID)
                 ->addSelect(PNAMENAME)
                 ->addSelect(CNCATEGORIENAME)
@@ -62,6 +66,17 @@ class PlaylistRepository extends ServiceEntityRepository
                 ->addGroupBy(CNAME)
                 ->orderBy('p.'.$champ, $ordre)
                 ->addOrderBy(CNAME)
+=======
+                ->select('p.id id')
+                ->addSelect('p.name name')
+                ->addSelect('c.name categoriename')
+                ->leftjoin('p.formations', 'f')
+                ->leftjoin('f.categories', 'c')
+                ->groupBy('p.id')
+                ->addGroupBy('c.name')
+                ->orderBy('p.'.$champ, $ordre)
+                ->addOrderBy('c.name')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
                 ->getQuery()
                 ->getResult();       
     }
@@ -80,6 +95,7 @@ class PlaylistRepository extends ServiceEntityRepository
         }    
         if($table==""){      
             return $this->createQueryBuilder('p')
+<<<<<<< HEAD
                     ->select(PIDID)
                     ->addSelect(PNAMENAME)
                     ->addSelect(CNCATEGORIENAME)
@@ -91,10 +107,24 @@ class PlaylistRepository extends ServiceEntityRepository
                     ->addGroupBy(CNAME)
                     ->orderBy('p.name', 'ASC')
                     ->addOrderBy(CNAME)
+=======
+                    ->select('p.id id')
+                    ->addSelect('p.name name')
+                    ->addSelect('c.name categoriename')
+                    ->leftjoin('p.formations', 'f')
+                    ->leftjoin('f.categories', 'c')
+                    ->where('p.'.$champ.' LIKE :valeur')
+                    ->setParameter('valeur', '%'.$valeur.'%')
+                    ->groupBy('p.id')
+                    ->addGroupBy('c.name')
+                    ->orderBy('p.name', 'ASC')
+                    ->addOrderBy('c.name')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
                     ->getQuery()
                     ->getResult();              
         }else{   
             return $this->createQueryBuilder('p')
+<<<<<<< HEAD
                     ->select(PIDID)
                     ->addSelect(PNAMENAME)
                     ->addSelect(CNCATEGORIENAME)
@@ -106,6 +136,19 @@ class PlaylistRepository extends ServiceEntityRepository
                     ->addGroupBy(CNAME)
                     ->orderBy('p.name', 'ASC')
                     ->addOrderBy(CNAME)
+=======
+                    ->select('p.id id')
+                    ->addSelect('p.name name')
+                    ->addSelect('c.name categoriename')
+                    ->leftjoin('p.formations', 'f')
+                    ->leftjoin('f.categories', 'c')
+                    ->where('c.'.$champ.' LIKE :valeur')
+                    ->setParameter('valeur', '%'.$valeur.'%')
+                    ->groupBy('p.id')
+                    ->addGroupBy('c.name')
+                    ->orderBy('p.name', 'ASC')
+                    ->addOrderBy('c.name')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
                     ->getQuery()
                     ->getResult();              
             

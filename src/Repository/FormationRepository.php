@@ -6,7 +6,10 @@ use App\Entity\Formation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+<<<<<<< HEAD
 define("FPUBLISHEDAT", "f.publishedAt");
+=======
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
 /**
  * @extends ServiceEntityRepository<Formation>
  *
@@ -77,7 +80,11 @@ class FormationRepository extends ServiceEntityRepository
         if($table==""){
             return $this->createQueryBuilder('f')
                     ->where('f.'.$champ.' LIKE :valeur')
+<<<<<<< HEAD
                     ->orderBy(FPUBLISHEDAT, 'DESC')
+=======
+                    ->orderBy('f.publishedAt', 'DESC')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
                     ->setParameter('valeur', '%'.$valeur.'%')
                     ->getQuery()
                     ->getResult();            
@@ -85,7 +92,11 @@ class FormationRepository extends ServiceEntityRepository
             return $this->createQueryBuilder('f')
                     ->join('f.'.$table, 't')                    
                     ->where('t.'.$champ.' LIKE :valeur')
+<<<<<<< HEAD
                     ->orderBy(FPUBLISHEDAT, 'DESC')
+=======
+                    ->orderBy('f.publishedAt', 'DESC')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
                     ->setParameter('valeur', '%'.$valeur.'%')
                     ->getQuery()
                     ->getResult();                   
@@ -99,7 +110,11 @@ class FormationRepository extends ServiceEntityRepository
      */
     public function findAllLasted($nb) : array {
         return $this->createQueryBuilder('f')
+<<<<<<< HEAD
                 ->orderBy(FPUBLISHEDAT, 'DESC')
+=======
+                ->orderBy('f.publishedAt', 'DESC')
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
                 ->setMaxResults($nb)     
                 ->getQuery()
                 ->getResult();
@@ -115,7 +130,11 @@ class FormationRepository extends ServiceEntityRepository
                 ->join('f.playlist', 'p')
                 ->where('p.id=:id')
                 ->setParameter('id', $idPlaylist)
+<<<<<<< HEAD
                 ->orderBy(FPUBLISHEDAT, 'ASC')   
+=======
+                ->orderBy('f.publishedAt', 'ASC')   
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
                 ->getQuery()
                 ->getResult();        
     }

@@ -88,11 +88,21 @@ class Playlist
 
     public function removeFormation(Formation $formation): self
     {
+<<<<<<< HEAD
         if ($this->formations->removeElement($formation) 
                 && $formation->getPlaylist() === $this) {
             // set the owning side to null (unless already changed)
                 $formation->setPlaylist(null);
         }
+=======
+        if ($this->formations->removeElement($formation)) {
+            // set the owning side to null (unless already changed)
+            if ($formation->getPlaylist() === $this) {
+                $formation->setPlaylist(null);
+            }
+        }
+
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
         return $this;
     }
 }

@@ -9,7 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+<<<<<<< HEAD
 define("PLAYLISTSPATH", "pages/playlists.html.twig");
+=======
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
 /**
  * Description of PlaylistsController
  *
@@ -65,7 +68,11 @@ class PlaylistsController extends AbstractController {
     public function sort($champ, $ordre): Response{
         $playlists = $this->playlistRepository->findAllOrderBy($champ, $ordre);
         $categories = $this->categorieRepository->findAll();
+<<<<<<< HEAD
         return $this->render(PLAYLISTSPATH, [
+=======
+        return $this->render("pages/playlists.html.twig", [
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
             'playlists' => $playlists,
             'categories' => $categories            
         ]);
@@ -82,7 +89,11 @@ class PlaylistsController extends AbstractController {
         $valeur = $request->get("recherche");
         $playlists = $this->playlistRepository->findByContainValue($champ, $valeur, $table);
         $categories = $this->categorieRepository->findAll();
+<<<<<<< HEAD
         return $this->render(PLAYLISTSPATH, [
+=======
+        return $this->render("pages/playlists.html.twig", [
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
             'playlists' => $playlists,
             'categories' => $categories,            
             'valeur' => $valeur,

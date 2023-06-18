@@ -8,8 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+<<<<<<< HEAD
 define("FORMATIONSPATH", "pages/formations.html.twig");
 
+=======
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
 /**
  * Controleur des formations
  *
@@ -17,7 +20,10 @@ define("FORMATIONSPATH", "pages/formations.html.twig");
  */
 class FormationsController extends AbstractController {
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
     /**
      * 
      * @var FormationRepository
@@ -58,7 +64,11 @@ class FormationsController extends AbstractController {
     public function sort($champ, $ordre, $table=""): Response{
         $formations = $this->formationRepository->findAllOrderBy($champ, $ordre, $table);
         $categories = $this->categorieRepository->findAll();
+<<<<<<< HEAD
         return $this->render(FORMATIONSPATH, [
+=======
+        return $this->render("pages/formations.html.twig", [
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
             'formations' => $formations,
             'categories' => $categories
         ]);
@@ -75,7 +85,11 @@ class FormationsController extends AbstractController {
         $valeur = $request->get("recherche");
         $formations = $this->formationRepository->findByContainValue($champ, $valeur, $table);
         $categories = $this->categorieRepository->findAll();
+<<<<<<< HEAD
         return $this->render(FORMATIONSPATH, [
+=======
+        return $this->render("pages/formations.html.twig", [
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
             'formations' => $formations,
             'categories' => $categories,
             'valeur' => $valeur,
