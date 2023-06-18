@@ -88,11 +88,31 @@ class Playlist
 
     public function removeFormation(Formation $formation): self
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
+>>>>>>> b2fd15cadb7d09e34f5c4b4993253bb3363ba15b
         if ($this->formations->removeElement($formation) 
                 && $formation->getPlaylist() === $this) {
             // set the owning side to null (unless already changed)
                 $formation->setPlaylist(null);
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
+>>>>>>> b2fd15cadb7d09e34f5c4b4993253bb3363ba15b
         return $this;
     }
     
@@ -112,4 +132,29 @@ class Playlist
         }
         return $categories;
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+        return $this;
+    }
+    
+=======
+=======
+        if ($this->formations->removeElement($formation)) {
+            // set the owning side to null (unless already changed)
+            if ($formation->getPlaylist() === $this) {
+                $formation->setPlaylist(null);
+            }
+        }
+
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+        return $this;
+    }
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
+>>>>>>> b2fd15cadb7d09e34f5c4b4993253bb3363ba15b
 }
