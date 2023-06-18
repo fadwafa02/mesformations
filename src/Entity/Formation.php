@@ -16,7 +16,31 @@ class Formation
     /**
      * Début de chemin vers les images
      */
+<<<<<<< HEAD
     private const CHEMINIMAGE = "https://i.ytimg.com/vi/";
+=======
+<<<<<<< HEAD
+    private const CHEMINIMAGE = "https://i.ytimg.com/vi/";
+=======
+<<<<<<< HEAD
+    private const CHEMINIMAGE = "https://i.ytimg.com/vi/";
+=======
+<<<<<<< HEAD
+    private const CHEMINIMAGE = "https://i.ytimg.com/vi/";
+=======
+<<<<<<< HEAD
+    private const CHEMINIMAGE = "https://i.ytimg.com/vi/";
+=======
+<<<<<<< HEAD
+    private const CHEMINIMAGE = "https://i.ytimg.com/vi/";
+=======
+    private const cheminImage = "https://i.ytimg.com/vi/";
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
+>>>>>>> b2fd15cadb7d09e34f5c4b4993253bb3363ba15b
+>>>>>>> 16a443d0cf4f73ad29871a54d73c1b7af6cf32ca
     
     /**
      * @ORM\Id
@@ -110,12 +134,60 @@ class Formation
 
     public function getMiniature(): ?string
     {
+<<<<<<< HEAD
         return self::CHEMINIMAGE.$this->videoId."/default.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/default.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/default.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/default.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/default.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/default.jpg";
+=======
+        return self::cheminImage.$this->videoId."/default.jpg";
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
+>>>>>>> b2fd15cadb7d09e34f5c4b4993253bb3363ba15b
+>>>>>>> 16a443d0cf4f73ad29871a54d73c1b7af6cf32ca
     }
 
     public function getPicture(): ?string
     {
+<<<<<<< HEAD
         return self::CHEMINIMAGE.$this->videoId."/hqdefault.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/hqdefault.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/hqdefault.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/hqdefault.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/hqdefault.jpg";
+=======
+<<<<<<< HEAD
+        return self::CHEMINIMAGE.$this->videoId."/hqdefault.jpg";
+=======
+        return self::cheminImage.$this->videoId."/hqdefault.jpg";
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
+>>>>>>> b2fd15cadb7d09e34f5c4b4993253bb3363ba15b
+>>>>>>> 16a443d0cf4f73ad29871a54d73c1b7af6cf32ca
     }
 
     public function getVideoId(): ?string

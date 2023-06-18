@@ -1,5 +1,16 @@
 <?php
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPClass.php to edit this template
+ */
+
+>>>>>>> b2fd15cadb7d09e34f5c4b4993253bb3363ba15b
+>>>>>>> 16a443d0cf4f73ad29871a54d73c1b7af6cf32ca
 namespace App\Controller\admin;
 
 use App\Entity\Formation;

@@ -53,6 +53,7 @@ class CategorieRepository extends ServiceEntityRepository
                 ->orderBy('c.name', 'ASC')   
                 ->getQuery()
                 ->getResult();        
+<<<<<<< HEAD
     }
     
     /**
@@ -83,5 +84,8 @@ class CategorieRepository extends ServiceEntityRepository
                     ->getQuery()
                     ->getResult();
     }
+=======
+    }    
+>>>>>>> 16a443d0cf4f73ad29871a54d73c1b7af6cf32ca
 
 }
