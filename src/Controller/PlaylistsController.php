@@ -8,9 +8,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+<<<<<<< HEAD
 use const PLAYLISTSPATH;
 
 define("PLAYLISTSPATH", "pages/playlists.html.twig");
+=======
+<<<<<<< HEAD
+use const PLAYLISTSPATH;
+
+define("PLAYLISTSPATH", "pages/playlists.html.twig");
+=======
+<<<<<<< HEAD
+use const PLAYLISTSPATH;
+
+define("PLAYLISTSPATH", "pages/playlists.html.twig");
+=======
+
+<<<<<<< HEAD
+define("PLAYLISTSPATH", "pages/playlists.html.twig");
+=======
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
 /**
  * Description of PlaylistsController
  *
@@ -49,7 +69,15 @@ class PlaylistsController extends AbstractController {
      * @return Response
      */
     public function index(): Response{
+<<<<<<< HEAD
         $playlists = $this->playlistRepository->findAllOrderByName('ASC');
+=======
+<<<<<<< HEAD
+        $playlists = $this->playlistRepository->findAllOrderByName('ASC');
+=======
+        $playlists = $this->playlistRepository->findAllOrderBy('name', 'ASC');
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
         $categories = $this->categorieRepository->findAll();
         return $this->render("pages/playlists.html.twig", [
             'playlists' => $playlists,
@@ -64,6 +92,10 @@ class PlaylistsController extends AbstractController {
      * @return Response
      */
     public function sort($champ, $ordre): Response{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
         switch($champ){
             case "name":
                 $playlists = $this->playlistRepository->findAllOrderByName($ordre);
@@ -74,6 +106,22 @@ class PlaylistsController extends AbstractController {
         }
         $categories = $this->categorieRepository->findAll();
         return $this->render(PLAYLISTSPATH, [
+<<<<<<< HEAD
+=======
+=======
+        $playlists = $this->playlistRepository->findAllOrderBy($champ, $ordre);
+        $categories = $this->categorieRepository->findAll();
+<<<<<<< HEAD
+        return $this->render(PLAYLISTSPATH, [
+=======
+<<<<<<< HEAD
+        return $this->render(PLAYLISTSPATH, [
+=======
+        return $this->render("pages/playlists.html.twig", [
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
             'playlists' => $playlists,
             'categories' => $categories            
         ]);
@@ -88,6 +136,13 @@ class PlaylistsController extends AbstractController {
      */
     public function findAllContain($champ, Request $request, $table=""): Response{
         $valeur = $request->get("recherche");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
         if ($table != ""){
         $playlists = $this->playlistRepository->findByContainValueTable($champ, $valeur, $table);
         }else{
@@ -95,6 +150,21 @@ class PlaylistsController extends AbstractController {
         }
         $categories = $this->categorieRepository->findAll();
         return $this->render(PLAYLISTSPATH, [
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        $playlists = $this->playlistRepository->findByContainValue($champ, $valeur, $table);
+        $categories = $this->categorieRepository->findAll();
+<<<<<<< HEAD
+        return $this->render(PLAYLISTSPATH, [
+=======
+        return $this->render("pages/playlists.html.twig", [
+>>>>>>> 5eea30864a5f6b7d0248714e2dc5e256b554c2c0
+>>>>>>> 8c9550a3327b002572efbb209dd39b70966b4c5e
+>>>>>>> d1e13274c5a7529f65dea67420db63c13f7639e9
+>>>>>>> 895f8a9f39b6833ab241a4715059b0088104f88b
             'playlists' => $playlists,
             'categories' => $categories,            
             'valeur' => $valeur,
